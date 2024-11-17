@@ -46,28 +46,15 @@ The VITS checkpoints are released under the permissive [MIT License](https://ope
 
 0. Clone this repository and install common requirements.
 
-```sh
-git clone git@github.com:ylacombe/finetune-hf-vits.git
+```bash
+git clone https://github.com/afrizalhasbi/vits
 cd finetune-hf-vits
 pip install -r requirements.txt
-```
-
-1. Link your Hugging Face account so that you can pull/push model repositories on the Hub. This will allow you to save the finetuned weights on the Hub so that you can share them with the community and reuse them easily. Run the command:
-
-```bash
-git config --global credential.helper store
-huggingface-cli login
-```
-And then enter an authentication token from https://huggingface.co/settings/tokens. Create a new token if you do not have one already. You should make sure that this token has "write" privileges.
-
-
-2. Build the monotonic alignment search function using cython. This is absolutely necessary since the Python-native-version is awfully slow.
-```sh
-# Cython-version Monotonoic Alignment Search
 cd monotonic_align
 mkdir monotonic_align
 python setup.py build_ext --inplace
 cd ..
+python convert_original_discriminator_checkpoint.py --language_code ind --pytorch_dump_folder_path mms_ind
 ```
 
 

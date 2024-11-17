@@ -48,7 +48,7 @@ The VITS checkpoints are released under the permissive [MIT License](https://ope
 
 ```bash
 git clone https://github.com/afrizalhasbi/vits
-cd finetune-hf-vits
+cd vits
 pip install -r requirements.txt
 cd monotonic_align
 mkdir monotonic_align

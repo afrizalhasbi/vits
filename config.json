@@ -1,4 +1,6 @@
 {
+    "preprocessing_only": true
+
     "project_name": "mms_indonesia",
     "push_to_hub": false,
     "report_to": ["wandb"],

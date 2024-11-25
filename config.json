@@ -18,11 +18,11 @@
     "min_duration_in_seconds": 1.0,
     "max_tokens_length": 1024,
 
-    "model_name_or_path": "mss_ind",
+    "model_name_or_path": "mms_ind",
     "preprocessing_num_workers": 4,
 
     "do_train": true,
-    "num_train_epochs": 200,
+    "num_train_epochs": 50,
     "gradient_accumulation_steps": 16,
     "gradient_checkpointing": false,
     "per_device_train_batch_size": 16,

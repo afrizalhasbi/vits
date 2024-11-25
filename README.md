@@ -9,7 +9,7 @@ cd ..
 python convert_original_discriminator_checkpoint.py --language_code ind --pytorch_dump_folder_path mms_ind
 ```
 ```
-accelerate launch run_vits_finetuning.py config.json
+accelerate launch run.py config.json
 ```
 
 ## Inference

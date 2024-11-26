@@ -780,8 +780,6 @@ def main():
             remove_columns=remove_columns,
             num_proc=num_workers,
             desc="preprocess train dataset",
-            batched=True,
-            batch_size=500
         )
 
     with training_args.main_process_first(desc="filter tokens lengths"):

@@ -1,5 +1,5 @@
 {
-    "preprocessing_only": true
+    "preprocessing_only": true,
 
     "project_name": "mms_indonesia",
     "push_to_hub": false,

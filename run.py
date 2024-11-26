@@ -5,6 +5,7 @@ Fine-tuning Vits for TTS.
 import logging
 import math
 import os
+import gc
 import shutil
 import sys
 import tempfile
@@ -751,6 +752,7 @@ def main():
             if new_num_speakers > 1:
                 # align speaker_id to [0, num_speaker_id-1].
                 batch["speaker_id"] = speaker_id_dict.get(batch[speaker_id_column_name], 0)
+        gc.collect()
         return batch
 
     remove_columns = next(iter(raw_datasets.values())).column_names
@@ -778,6 +780,8 @@ def main():
             remove_columns=remove_columns,
             num_proc=num_workers,
             desc="preprocess train dataset",
+            batched=True,
+            batch_size=500
         )
 
     with training_args.main_process_first(desc="filter tokens lengths"):

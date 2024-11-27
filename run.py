@@ -1093,6 +1093,7 @@ def main():
             # print(f"batch {step}, process{accelerator.process_index}, waveform {(batch['waveform'].shape)}, tokens {(batch['input_ids'].shape)}... ")
             with accelerator.accumulate(model, discriminator):
                 # forward through model
+                print(batch)
                 model_outputs = model(
                     input_ids=batch["input_ids"],
                     attention_mask=batch["attention_mask"],

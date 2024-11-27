@@ -1,5 +1,5 @@
 {
-    "preprocessing_only": true,
+    "preprocessing_only": false,
 
     "project_name": "mms_indonesia",
     "push_to_hub": false,
@@ -12,6 +12,7 @@
     "text_column_name":"text",
     "train_split_name": "train",
     "speaker_id_column_name": "text_description",
+    "filter_on_speaker_id": "",
     "override_speaker_embeddings": true,
 
     "full_generation_sample_text": "Sepanjang jalan kenangan kita selalu bergandeng tangan",
@@ -24,23 +25,24 @@
     "preprocessing_num_workers": 4,
 
     "do_train": true,
-    "num_train_epochs": 50,
+    "max_steps": 2400,
     "gradient_accumulation_steps": 16,
-    "gradient_checkpointing": false,
+    "gradient_checkpointing": true,
     "per_device_train_batch_size": 16,
-    "learning_rate": 2e-5,
+    "learning_rate": 2e-6,
+    "lr_scheduler_type": "constant_with_warmup",
     "adam_beta1": 0.8,
     "adam_beta2": 0.99,
-    "warmup_ratio": 0.01,
+    "warmup_ratio": 0.1,
     "group_by_length": false,
     "do_eval": false, 
-    "do_step_schedule_per_epoch": true,
+    "do_step_schedule_per_epoch": false,
 
     "weight_disc": 3,
     "weight_fmaps": 1,
     "weight_gen": 1,
     "weight_kl": 1.5,
-    "weight_duration": 1,
+    "weight_duration": 1.5,
     "weight_mel": 35,
 
     "fp16": true,

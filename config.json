@@ -35,7 +35,9 @@
     "adam_beta2": 0.99,
     "warmup_ratio": 0.1,
     "group_by_length": false,
-    "do_eval": false, 
+    "do_eval": false,
+    "save_total_limit": 1,
+    "save_steps": 999999,
     "do_step_schedule_per_epoch": false,
 
     "weight_disc": 3,

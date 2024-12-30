@@ -19,7 +19,7 @@ import os
 
 from accelerate import Accelerator, DistributedDataParallelKwargs
 from accelerate.utils import ProjectConfiguration, is_wandb_available, set_seed
-from datasets import DatasetDict, load_dataset
+from datasets import DatasetDict, load_dataset, load_from_disk
 from monotonic_align import maximum_path
 from tqdm.auto import tqdm
 
@@ -589,14 +589,16 @@ def main():
     raw_datasets = DatasetDict()
 
     if training_args.do_train:
-        raw_datasets["train"] = load_dataset(
-            data_args.dataset_name,
-            data_args.dataset_config_name,
-            split=data_args.train_split_name,
-            cache_dir=model_args.cache_dir,
-            token=model_args.token,
-        )
-
+        try:
+            raw_datasets["train"] = load_from_disk(data_args.dataset_name,)
+        except FileNotFoundError:
+            raw_datasets["train"] = load_dataset(
+                data_args.dataset_name,
+                data_args.dataset_config_name,
+                split=data_args.train_split_name,
+                cache_dir=model_args.cache_dir,
+                token=model_args.token,
+            )
     if training_args.do_eval:
         raw_datasets["eval"] = load_dataset(
             data_args.dataset_name,

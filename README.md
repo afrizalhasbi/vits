@@ -1,7 +1,7 @@
 ```bash
 git clone https://github.com/afrizalhasbi/vits
 cd vits
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 cd monotonic_align
 mkdir monotonic_align
 python setup.py build_ext --inplace
